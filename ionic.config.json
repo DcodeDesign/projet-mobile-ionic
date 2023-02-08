@@ -1,0 +1,21 @@
+{
+  "defaultProject": "app-mobile",
+  "projects": {
+    "myApp": {
+      "name": "app-mobile",
+      "integrations": {},
+      "webDir": "dist/app-mobile",
+      "type": "angular",
+      "root": "apps/app-mobile",
+      "server": {
+        "url": "http://192.168.1.9:8100",
+        "cleartext": true
+      }
+    },
+    "app-mobile": {
+      "integrations": {
+        "capacitor": {}
+      }
+    }
+  }
+}

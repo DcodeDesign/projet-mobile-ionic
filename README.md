@@ -1,27 +1,79 @@
 # AppMobile
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.0.4.
+## Capacitor: Install the native platforms you want to target.
+```
+npm i @capacitor/ios @capacitor/android
+npx cap add android
+npx cap add ios
+ng build
+```
 
-## Development server
+### Sync the build folder to native projects
+```
+npx cap sync
+```
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+### command to directly open Android Studio or Xcode
+```
+npx cap open ios
+npx cap open android
+```
 
-## Code scaffolding
+### command to directly open Android Studio or Xcode
+```
+npx cap run ios
+npx cap run android
+```
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### Capacitor Live Reload
+```
+ipconfig getifaddr en0
 
-## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+ng serve -o --host localhost
+npx cap run android -l --external
+npx cap run ios -l --external
+```
 
-## Running unit tests
+#### Alternative
+```
+ng serve -o --host localhost:4200
+ng serve -o --host 10.0.2.2:4200
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+npx cap run android -l --external --host localhost:4200
+npx cap run android -l --livereload-url=http://localhost:4200
+npx cap run android --livereload-url=http://10.0.2.2:4200
+npx cap run android --livereload-url=http://localhost:4200
+npx cap run ios --livereload-url=http://localhost:4200
+npx cap run android -l --host=localhost --port=4200
+npx cap run ios -l --external
 
-## Running end-to-end tests
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+ionic cap add android
+ionic cap sync
+ionic cap build android
+ionic cap run android --external -livereload
+```
 
-## Further help
+## Other command
+```
+npx cap doctor
+ionic info
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+rm -rf node_modules package-lock.json
+npm cache clean -f
+
+sudo npm install -g @ionic/app-scripts@latest --save-dev
+npm install --python=python2.7 
+npm config set python python2.7
+npm install node-sass@6.0 
+```
+## commands valid
+```
+ipconfig getifaddr en0
+ng serve -o --host 192.168.1.9
+ionic cap run android --external --livereload-url=http://192.168.1.9:4200
+```
+
+If you are referring your localhost on your system from the Android emulator then you have to use http://10.0.2.2:8080/ Because Android emulator runs in a Virtual Machine therefore here 127.0.0.1 or localhost will be emulator's own loopback address.
+https://stackoverflow.com/questions/5495534/java-net-connectexception-localhost-127-0-0-18080-connection-refused
